@@ -1,0 +1,7 @@
+*.zip
+*.apk
+build/
+.gradle/
+local.properties
+
+temp will del before upload/

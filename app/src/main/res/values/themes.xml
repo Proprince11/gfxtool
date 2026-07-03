@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.GfxTool" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#F5A623</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="android:windowBackground">#0D0D12</item>
+        <item name="android:statusBarColor">#0D0D12</item>
+        <item name="android:navigationBarColor">#0D0D12</item>
+    </style>
+
+    <style name="SectionLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#F5A623</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="RadioBtn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#CCCCCC</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:buttonTint">#F5A623</item>
+    </style>
+</resources>
