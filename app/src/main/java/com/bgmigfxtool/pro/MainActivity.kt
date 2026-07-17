@@ -175,6 +175,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         // ── Preset buttons ─────────────────────────────────────────────────
+        // ⚡ Ultra Performance: absolute maximum FPS, minimum GPU load
+        findViewById<Button>(R.id.btnPresetUltra).setOnClickListener {
+            fps = 60; quality = 1; style = 1; resolution = "0.5625"; shadow = 0
+            msaa = 1; ipadView = false; vulkan = false; hdr = false
+            saveAllSettings()
+            syncUiToState()
+            toast("⚡ Ultra Performance — 540p/Smooth/60fps/No effects. Maximum FPS!")
+        }
+
         // 🏆 Competitive: Smooth + Colorful + 90fps + 720p + no shadows + no HDR
         findViewById<Button>(R.id.btnPresetCompetitive).setOnClickListener {
             fps = 90; quality = 1; style = 3; resolution = "0.75"; shadow = 0
@@ -261,6 +270,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 // Build settings object
+                val isUltraPerf = quality == 1 && resolution == "0.5625"
                 val settings = FileWriter.Settings(
                     pkg          = gamePkg,
                     fps          = fps,
@@ -272,9 +282,9 @@ class MainActivity : AppCompatActivity() {
                     ipadView     = ipadView,
                     vulkan       = vulkan,
                     hdr          = hdr,
-                    enemyLodBias = if (quality <= 2) 1 else 0,
-                    viewDistance = if (quality <= 2) 0.85f else 1.0f,
-                    particleRate = 0.5f
+                    enemyLodBias = if (isUltraPerf) 2 else if (quality <= 2) 1 else 0,
+                    viewDistance = if (isUltraPerf) 0.7f else if (quality <= 2) 0.85f else 1.0f,
+                    particleRate = if (isUltraPerf) 0.2f else 0.5f
                 )
 
                 // Write all 3 files
